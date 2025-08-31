@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('verses', function (Blueprint $table) {
             $table->id();
+            $table->string('text');
+            $table->string('reference');
             $table->timestamps();
         });
     }
