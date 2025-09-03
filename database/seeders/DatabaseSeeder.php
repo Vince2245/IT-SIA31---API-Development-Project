@@ -1,23 +1,22 @@
-<?php
+use Database\Seeder;
+use App\Models\Verse;
 
-namespace Database\Seeders;
-
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+class VerseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
+    public function run()
     {
-        // User::factory(10)->create();
+        Verse::create([
+            'book' => 'John',
+            'chapter' => 3,
+            'verse' => 16,
+            'text' => 'For God so loved the world that he gave his one and only Son...'
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        Verse::create([
+            'book' => 'Psalm',
+            'chapter' => 23,
+            'verse' => 1,
+            'text' => 'The Lord is my shepherd; I shall not want.'
         ]);
     }
 }
