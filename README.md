@@ -85,6 +85,3 @@ Copy code
 - Your API info directly below.  
 - Setup instructions and routes are clearly listed.  
 
-If you want, I can also **add badges specifically for your API**, so GitHub shows your branch, last commit, or workflow status for `marben`. That makes it look even more professional.  
-
-Do you want me to do that?
