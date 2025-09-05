@@ -12,6 +12,6 @@ class VerseSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // 
     }
 }
