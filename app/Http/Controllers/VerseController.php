@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -6,41 +8,33 @@ use Illuminate\Http\Request;
 
 class VerseController extends Controller
 {
-    // Get all verses
+    // Return all verses
     public function index()
     {
         return response()->json(Verse::all());
     }
 
-    // Get a specific verse
+    // Return a single verse by ID
     public function show($id)
     {
         $verse = Verse::find($id);
 
         if (!$verse) {
-            return response()->json(['message' => 'Verse not found'], 404);
+            return response()->json(['error' => 'Verse not found'], 404);
         }
 
         return response()->json($verse);
     }
 
-    // Search by book, chapter, verse
+    // Search verses by keyword
     public function search(Request $request)
     {
-        $query = Verse::query();
+        $query = $request->input('q');
 
-        if ($request->has('book')) {
-            $query->where('book', $request->book);
-        }
+        $verses = Verse::where('book', 'like', "%{$query}%")
+                        ->orWhere('text', 'like', "%{$query}%")
+                        ->get();
 
-        if ($request->has('chapter')) {
-            $query->where('chapter', $request->chapter);
-        }
-
-        if ($request->has('verse')) {
-            $query->where('verse', $request->verse);
-        }
-
-        return response()->json($query->get());
+        return response()->json($verses);
     }
 }
