@@ -12,6 +12,8 @@ class VerseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        
         Verse::create([
             'reference' => 'Matthew 5:14-16',
             'text' => '14 Ye are the light of the world. A city that is set on an hill cannot be hid. 15 Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house. 16 Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.'
@@ -211,6 +213,5 @@ class VerseSeeder extends Seeder
             'text' => '5 Behold, I will send you Elijah the prophet before the coming of the great and dreadful day of the Lord: 6 And he shall turn the heart of the fathers to the children, and the heart of the children to their fathers, lest I come and smite the earth with a curse.'
         ]);
         
-
     }
 }
